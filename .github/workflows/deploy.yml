@@ -32,3 +32,15 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
+
+      # 배포 (scp)
+      - name: Deploy build outputs
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_PEM_KEY }}
+          port: ${{ secrets.PORT }}
+          source: "build/*"
+          strip_components: 1
+          target: "/var/www/html"

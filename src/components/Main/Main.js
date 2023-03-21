@@ -13,7 +13,7 @@ function Main(){
     useEffect(() => {
         axios({
             method: "get",
-            url: "http://54.180.210.232:8080/api/v1/posts",
+            url: "http://54.180.210.232:8080/api/v1/postsrole=NOTICE&page=0",
             headers: {
                 "Content-Type": "application/json",
                 Authorization: "Bearer " + token,
